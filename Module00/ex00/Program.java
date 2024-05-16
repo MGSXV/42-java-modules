@@ -15,15 +15,16 @@ class Main
 	public static void main(String args[])
 	{
 		int		number;
-		int		sum;
 
-		number = 55;
-		sum = 0;
-		while (number > 0)
-		{
-			sum += number % 10;
-			number /= 10;
-		}
-		System.out.println(sum);
+		number = 479598;
+		System.out.println(sumOfDigits(number));
+	}
+
+	public static int sumOfDigits(int number)
+	{
+		if (number == 0)
+			return (0);
+		else
+			return (number % 10 + sumOfDigits(number / 10));
 	}
 }
