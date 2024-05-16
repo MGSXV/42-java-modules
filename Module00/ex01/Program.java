@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Main {
+class Program {
 	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);
 		int	number = -1;

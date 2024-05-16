@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Program.java                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgs <mgs@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 01:34:42 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/09/17 06:20:44 by sel-kham         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:16:19 by mgs              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-class Main
+class Program
 {
 	public static void main(String args[])
 	{
