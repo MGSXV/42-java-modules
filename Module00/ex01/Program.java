@@ -1,34 +1,41 @@
+
 import java.util.Scanner;
+
 
 class Program {
 	public static void main(String args[]) {
+		int	number;
+		int	i;
+
+		number = readNumber();
+		if (number <= 1) {
+			System.err.println("IllegalArgument");
+			System.exit(-1); // TODO: may be not allowed
+		}
+		i = 2;
+		while (i * i < number) {
+			if (number % i == 0) {
+				i--;
+				System.out.print("false ");
+				System.out.println(i);
+				return ;
+			}
+			i++;
+		}
+		i--;
+		System.out.print("true ");
+		System.out.println(i);
+	}
+
+	private static int readNumber() {
+		int	number;
 		Scanner scanner = new Scanner(System.in);
-		int	number = -1;
-		boolean	isValid = false;
-		while (!isValid) {
-			System.out.print("-> ");
-			if (scanner.hasNextInt()) {
-				number = scanner.nextInt();
-				isValid = true;
-			} else {
-				System.out.println("IllegalArgument");
-				scanner.next();
-			}
-		}
-		if (number < 2)
-			System.out.println("IllegalArgument");
-		else {
-			long i = 2;
-			while (i * i <= number) {
-				if (number % i == 0) {
-					System.out.println("false " + (i - 1));
-					break;
-				}
-				i++;
-			}
-			if (i * i > number)
-				System.out.println("true " + (i - 1));
-		}
+
+		if (!scanner.hasNextInt())
+			number = -1;
+		else
+			number = scanner.nextInt();
 		scanner.close();
+		return number;
 	}
 }
