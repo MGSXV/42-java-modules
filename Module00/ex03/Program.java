@@ -26,11 +26,14 @@ public class Program {
 				break ;
 			Program.readGrades(scanner);
 		}
+		// System.err.println("grades ---> " + Program.grades);
 		i = 0;
 		weeks = Program.weeks;
-		while (i++ < Program.weeks) {
+		while (i++ <= Program.weeks) {
 			weeks--;
-			Program.printData(i, Program.getGrade(weeks));
+			int grade = Program.getGrade(weeks);
+			// System.err.println("GRADE : " + grade);
+			Program.printData(i, grade);
 		}
 		scanner.close();
 	}
@@ -38,7 +41,7 @@ public class Program {
 	private static void printData(int week, int data) {
 		System.out.print("Week ");
 		System.out.print(week);
-		while (data != 0) {
+		while (data > 0) {
 			System.out.print("=");
 			data--;
 		}
@@ -58,7 +61,7 @@ public class Program {
 				return ;
 			if (!Program.input.equals(Program.PREFIX))
 				Program.panic();
-			if (scanner.hasNextInt()) // TODO: HEHE
+			if (scanner.hasNextInt())
 				week = scanner.nextInt();
 			else
 				Program.panic();
@@ -95,7 +98,7 @@ public class Program {
 	}
 
 	private static int getGrade(int index) {
-		int	divisor;
+		long	divisor;
 
 		divisor = 1;
 		while (index-- > 0)
