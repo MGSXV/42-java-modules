@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 
 public class Program {
-	private static final int MAX_WEEKS = 3;
+	private static final int MAX_WEEKS = 18;
 	private static final int MAX_GRADES_PER_WEEK = 5;
 	private static final String EOF = "42";
-	private static final String PREFIX = "w";
+	private static final String PREFIX = "Week";
 	private static long grades = 0L;
 	private static int weeks = 0;
 	private static String input = "";

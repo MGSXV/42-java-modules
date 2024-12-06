@@ -10,7 +10,7 @@ class Program {
 		number = readNumber();
 		if (number <= 1) {
 			System.err.println("IllegalArgument");
-			System.exit(-1); // TODO: may be not allowed
+			System.exit(-1);
 		}
 		i = 2;
 		while (i * i < number) {
