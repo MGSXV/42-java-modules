@@ -13,7 +13,7 @@ class Program {
 			System.exit(-1);
 		}
 		i = 2;
-		while (i * i < number) {
+		while (i * i <= number) {
 			if (number % i == 0) {
 				i--;
 				System.out.print("false ");

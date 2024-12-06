@@ -35,7 +35,7 @@ class Program {
 
 		if (number <= 1)
 			return false;
-		while (i * i < number) {
+		while (i * i <= number) {
 			if (number % i == 0)
 				return false;
 			i++;
