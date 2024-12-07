@@ -2,7 +2,7 @@ public class Program {
 	public static void main(String[] args) {
 		User user1 = new User("Alice", 1000);
 		User user2 = new User("Bob", 1000);
-		Transaction transaction = new Transaction("id-01", user1, user2, 100, Transaction.ETransitionCategory.DEBIT);
+		Transaction transaction = new Transaction(user1, user2, 100, Transaction.ETransitionCategory.DEBIT);
 
 		user1.setName("Alice");
 		user1.setBalance(1000);

@@ -1,5 +1,7 @@
+import java.util.UUID;
+
 public class Transaction {
-	private String				id;
+	private UUID				id;
 	private User				sender;
 	private User				recipient;
 	private double 				amount;
@@ -20,15 +22,15 @@ public class Transaction {
 		}
 	}
 
-	Transaction(String id, User sender, User recipient, double amount, ETransitionCategory category) {
-		this.id = id;
+	Transaction(User sender, User recipient, double amount, ETransitionCategory category) {
+		this.id = UUID.randomUUID();
 		this.sender = sender;
 		this.recipient = recipient;
 		this.category = category;
 		this.amount = amount;
 	}
 
-	public String getID() {
+	public UUID getID() {
 		return this.id;
 	}
 	public User getSender() {
@@ -41,7 +43,7 @@ public class Transaction {
 		return this.amount;
 	}
 
-	public void setID(String id) {
+	public void setID(UUID id) {
 		this.id = id;
 	}
 	public void setSender(User sender) {
