@@ -1,8 +1,8 @@
-import java.util.UUID;
-
 public class User {
 
-	private UUID	id;
+	private static long idGenerator = 0;
+
+	private long	id;
 	private String	name;
 	private double	balance;
 
@@ -11,13 +11,13 @@ public class User {
 			System.out.println("Balance can't be negative");
 			return;
 		}
-		this.id = UUID.randomUUID();
+		this.id = idGenerator++;
 		this.name = name;
 		this.balance = balance;
 	}
 
 
-	public UUID		getID() {
+	public long		getID() {
 		return this.id;
 	}
 	public String	getName() {
@@ -27,7 +27,7 @@ public class User {
 		return this.balance;
 	}
 
-	public void		setID(UUID id) {
+	public void		setID(long id) {
 		this.id = id;
 	}
 	public void		setName(String name) {
