@@ -1,6 +1,6 @@
 public class UserIdsGenerator {
-	static private long id = 0;
 	static private UserIdsGenerator instance = null;
+	private long id = 0;
 
 	private UserIdsGenerator() {
 	}
