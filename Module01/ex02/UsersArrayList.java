@@ -38,7 +38,7 @@ public class UsersArrayList implements UsersList {
 
 	public User getUserByIndex(int index) {
 		if (index < 0 || index >= users.length) {
-			return null;
+			throw new UserNotFoundException("User not found");
 		}
 		return users[index];
 	}
@@ -49,7 +49,7 @@ public class UsersArrayList implements UsersList {
 				return users[i];
 			}
 		}
-		return null;
+		throw new UserNotFoundException("User not found");
 	}
 
 	public long getUsersCount() {
@@ -62,4 +62,14 @@ public class UsersArrayList implements UsersList {
 		return count;
 	}
 
+	private class UserNotFoundException extends RuntimeException {
+		
+		private static final long serialVersionUID = 1L;
+
+		public UserNotFoundException(String message) {
+			super(message);
+		}
+	
+		
+	}
 }

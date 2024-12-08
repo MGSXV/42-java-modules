@@ -20,5 +20,13 @@ public class Program {
 		for (int i = 0; i < usersArrayList.getUsersCount(); i++) {
 			System.out.println(usersArrayList.getUserByIndex(i).print());
 		}
+		System.out.println("<=======================================>");
+		System.out.println(usersArrayList.getUserById(0).print());
+		System.out.println("<=======================================>");
+		try {
+			System.out.println(usersArrayList.getUserById(10).print());
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }
