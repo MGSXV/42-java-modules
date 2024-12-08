@@ -1,6 +1,6 @@
 public class Program {
 	public static void main(String[] args) {
-		TransactionsLinkedList transactions = new TransactionsLinkedList();
+		TransactionsLinkedList transactions = TransactionsLinkedList.getInstance();
 		User user1 = new User("John", 1000);
 		User user2 = new User("Jane", 2000);
 		Transaction transaction1 = new Transaction(user1, user2, 100, Transaction.ETransitionCategory.DEBIT);
