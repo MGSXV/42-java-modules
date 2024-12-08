@@ -27,5 +27,11 @@ public class Program {
 		for (Transaction transaction : transactionsArray) {
 			System.out.println(transaction.print());
 		}
+		System.out.println("<============>");
+		try {
+			transactions.removeTransactionById(transaction1.getID());
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }

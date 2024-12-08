@@ -43,7 +43,7 @@ public class TransactionsLinkedList implements TransactionsList {
 			previous = current;
 			current = current.next;
 		}
-		return false;
+		throw new TransactionNotFoundException("Transaction not found");
 	}
 
 	@Override
@@ -67,6 +67,12 @@ public class TransactionsLinkedList implements TransactionsList {
 		Node(Transaction transaction) {
 			this.transaction = transaction;
 			this.next = null;
+		}
+	}
+
+	private class TransactionNotFoundException extends RuntimeException {
+		TransactionNotFoundException(String message) {
+			super(message);
 		}
 	}
 	
