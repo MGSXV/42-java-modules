@@ -1,12 +1,20 @@
 import java.util.UUID;
 
 public class TransactionsLinkedList implements TransactionsList {
+	private static TransactionsLinkedList instance;
 	private Node head;
 	private int size;
 
-	public TransactionsLinkedList() {
+	private TransactionsLinkedList() {
 		this.head = null;
 		this.size = 0;
+	}
+
+	public static TransactionsLinkedList getInstance() {
+		if (instance == null) {
+			instance = new TransactionsLinkedList();
+		}
+		return instance;
 	}
 
 	@Override
