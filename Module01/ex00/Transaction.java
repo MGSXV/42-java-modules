@@ -30,6 +30,14 @@ public class Transaction {
 		this.amount = amount;
 	}
 
+	Transaction(UUID id, User sender, User recipient, double amount, ETransitionCategory category) {
+		this.id = id;
+		this.sender = sender;
+		this.recipient = recipient;
+		this.category = category;
+		this.amount = amount;
+	}
+
 	public UUID getID() {
 		return this.id;
 	}
