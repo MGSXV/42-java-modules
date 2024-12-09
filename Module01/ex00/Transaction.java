@@ -56,11 +56,11 @@ public class Transaction {
 		this.amount = amount;
 	}
 
-	public void execute() {
+	public boolean execute() {
 		if (this.category == ETransitionCategory.DEBIT) {
 			if (this.sender.getBalance() < this.amount) {
 				System.out.println("m7zou9a d3wa");
-				return;
+				return false;
 			}
 			this.sender.setBalance(this.sender.getBalance() - this.amount);
 			this.recipient.setBalance(this.recipient.getBalance() + this.amount);
@@ -68,6 +68,7 @@ public class Transaction {
 			this.sender.setBalance(this.sender.getBalance() + this.amount);
 			this.recipient.setBalance(this.recipient.getBalance() - this.amount);
 		}
+		return true;
 	}
 
 	// Blast toString() method
