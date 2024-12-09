@@ -7,13 +7,12 @@ public class User {
 	private double	balance;
 
 	User(String name, double balance) {
-		if (balance < 0) {
-			System.out.println("Balance can't be negative");
-			return;
-		}
 		this.id = idGenerator++;
 		this.name = name;
-		this.balance = balance;
+		if (balance < 0) 
+			this.balance = 0;
+		else
+			this.balance = balance;
 	}
 
 
@@ -34,11 +33,10 @@ public class User {
 		this.name = name;
 	}
 	public void		setBalance(double balance) {
-		if (balance < 0) {
-			System.out.println("Balance can't be negative");
-			return;
-		}
-		this.balance = balance;
+		if (balance < 0) 
+			this.balance = 0;
+		else
+			this.balance = balance;
 	}
 
 	// Blast toString() method

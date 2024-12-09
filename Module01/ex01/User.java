@@ -1,17 +1,18 @@
 public class User {
 
+	private static long idGenerator = 0;
+
 	private long	id;
 	private String	name;
 	private double	balance;
 
 	User(String name, double balance) {
-		if (balance < 0) {
-			System.out.println("Balance can't be negative");
-			return;
-		}
-		this.id = UserIdsGenerator.getInstance().generateId();
+		this.id = idGenerator++;
 		this.name = name;
-		this.balance = balance;
+		if (balance < 0) 
+			this.balance = 0;
+		else
+			this.balance = balance;
 	}
 
 
@@ -25,15 +26,17 @@ public class User {
 		return this.balance;
 	}
 
+	public void		setID(long id) {
+		this.id = id;
+	}
 	public void		setName(String name) {
 		this.name = name;
 	}
 	public void		setBalance(double balance) {
-		if (balance < 0) {
-			System.out.println("Balance can't be negative");
-			return;
-		}
-		this.balance = balance;
+		if (balance < 0) 
+			this.balance = 0;
+		else
+			this.balance = balance;
 	}
 
 	// Blast toString() method
