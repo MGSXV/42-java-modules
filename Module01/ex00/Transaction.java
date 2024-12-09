@@ -50,6 +50,9 @@ public class Transaction {
 	public double getAmount() {
 		return this.amount;
 	}
+	public ETransitionCategory getCategory() {
+		return this.category;
+	}
 
 	public void setID(UUID id) {
 		this.id = id;
@@ -62,6 +65,9 @@ public class Transaction {
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+	public void setCategory(ETransitionCategory category) {
+		this.category = category;
 	}
 
 	public boolean execute() {
