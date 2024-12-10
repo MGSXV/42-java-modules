@@ -62,14 +62,9 @@ public class UsersArrayList implements UsersList {
 		return count;
 	}
 
-	private class UserNotFoundException extends RuntimeException {
-		
-		private static final long serialVersionUID = 1L;
-
+	public class UserNotFoundException extends RuntimeException {
 		public UserNotFoundException(String message) {
 			super(message);
 		}
-	
-		
 	}
 }

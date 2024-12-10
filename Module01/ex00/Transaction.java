@@ -73,7 +73,6 @@ public class Transaction {
 	public boolean execute() {
 		if (this.category == ETransitionCategory.DEBIT) {
 			if (this.sender.getBalance() < this.amount) {
-				System.out.println("m7zou9a d3wa");
 				return false;
 			}
 			this.sender.setBalance(this.sender.getBalance() - this.amount);

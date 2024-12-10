@@ -25,7 +25,7 @@ public class Program {
 		System.out.println("<=======================================>");
 		try {
 			System.out.println(usersArrayList.getUserById(10).print());
-		} catch (RuntimeException e) {
+		} catch (UsersArrayList.UserNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
 	}

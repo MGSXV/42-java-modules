@@ -5,6 +5,7 @@ public class Menu {
 
 	TransactionsService transactionsService;
 	UsersArrayList users;
+	EProfile profile;
 
 	public Menu() {
 		this.transactionsService = new TransactionsService();
@@ -12,13 +13,18 @@ public class Menu {
 	}
 
 	public void viewMenu() {
+		String exitNumber = profile == EProfile.DEV ? "7" : "5";
 		System.out.println("1. Add a user");
 		System.out.println("2. View user balances");
 		System.out.println("3. Perform a transfer");
 		System.out.println("4. View all transactions for a specific user");
 		System.out.println("5. DEV - remove a transfer by ID");
 		System.out.println("6. DEV - check transfer validity");
-		System.out.println("7. Exit");
+		System.out.println(exitNumber + ". Exit");
+	}
+
+	public void setProfile(EProfile profile) {
+		this.profile = profile;
 	}
 
 	private void addAUser(Scanner scanner) {
@@ -120,32 +126,36 @@ public class Menu {
 
 	public boolean execute(int choice, Scanner scanner) {
 		
-		switch (choice) {
-			case 1:
-				addAUser(scanner);
-				break;
-			case 2:
-				viewUserBalances(scanner);
-				break;
-			case 3:
-				performTransaction(scanner);
-				break;
-			case 4:
-				viewAllTransactionsForASpecificUser(scanner);
-				break;
-			case 5:
-				removeATransferByID(scanner);
-				break;
-			case 6:
-				checkTransferValidity(scanner);
-				break;
-			case 7:
-				System.out.println("Exit");
-				return false;
-			default:
-				System.out.println("Invalid choice");
-				return true;
+		if (choice == 1) {
+			addAUser(scanner);
+		} else if (choice == 2) {
+			viewUserBalances(scanner);
+		} else if (choice == 3) {
+			performTransaction(scanner);
+		} else if (choice == 4) {
+			viewAllTransactionsForASpecificUser(scanner);
+		} else if (choice == 5 && profile == EProfile.DEV) {
+			removeATransferByID(scanner);
+		} else if (choice == 6 && profile == EProfile.DEV) {
+			checkTransferValidity(scanner);
+		} else if (profile == EProfile.DEV &&  choice == 7 || profile == EProfile.PROD && choice == 5) {
+			System.out.println("Exit");
+			return false;
+		} else {
+			System.out.println("Invalid choice");
+			return true;
 		}
 		return true;
+	}
+
+	public enum EProfile {
+		DEV(1),
+		PROD(2);
+
+		private int value;
+
+		EProfile(int value) {
+			this.value = value;
+		}
 	}
 }

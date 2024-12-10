@@ -1,13 +1,11 @@
 public class User {
 
-	private static long idGenerator = 0;
-
 	private long	id;
 	private String	name;
 	private double	balance;
 
 	User(String name, double balance) {
-		this.id = idGenerator++;
+		this.id = UserIdsGenerator.getInstance().generateId();
 		this.name = name;
 		if (balance < 0) 
 			this.balance = 0;
@@ -33,10 +31,7 @@ public class User {
 		this.name = name;
 	}
 	public void		setBalance(double balance) {
-		if (balance < 0) 
-			this.balance = 0;
-		else
-			this.balance = balance;
+		this.balance = balance;
 	}
 
 	// Blast toString() method

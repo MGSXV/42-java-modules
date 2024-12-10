@@ -70,7 +70,7 @@ public class TransactionsLinkedList implements TransactionsList {
 		}
 	}
 
-	private class TransactionNotFoundException extends RuntimeException {
+	public class TransactionNotFoundException extends RuntimeException {
 		TransactionNotFoundException(String message) {
 			super(message);
 		}

@@ -30,7 +30,7 @@ public class Program {
 		System.out.println("<============>");
 		try {
 			transactions.removeTransactionById(transaction1.getID());
-		} catch (RuntimeException e) {
+		} catch (TransactionsLinkedList.TransactionNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
 	}

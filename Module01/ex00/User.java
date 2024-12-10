@@ -33,10 +33,7 @@ public class User {
 		this.name = name;
 	}
 	public void		setBalance(double balance) {
-		if (balance < 0) 
-			this.balance = 0;
-		else
-			this.balance = balance;
+		this.balance = balance;
 	}
 
 	// Blast toString() method
