@@ -1,6 +1,4 @@
-import java.io.FileDescriptor;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Scanner;
 import java.util.HashMap;
@@ -11,9 +9,9 @@ public class MagicNumberExtractor {
 		String magicNumber = "";
 		try {
 			FileInputStream fileInputStream = new FileInputStream(fileName);
-			byte[] buffer = new byte[8];
+			byte[] buffer = new byte[SignatureReader.longestSignature];
 
-			fileInputStream.read(buffer, 0, 8);
+			fileInputStream.read(buffer, 0, SignatureReader.longestSignature);
 			for (byte b : buffer) {
 				magicNumber += String.format("%02X ", b);
 			}
@@ -53,7 +51,7 @@ public class MagicNumberExtractor {
 
 	public String isInMap(String magicNumber, HashMap<String, String> signatures) {
 		for (HashMap.Entry<String, String> entry : signatures.entrySet()) {
-			if (magicNumber.indexOf(entry.getKey()) != -1)
+			if (magicNumber.indexOf(entry.getKey()) != 0)
 				return entry.getValue();
 		}
 		return "UNDEFINED";

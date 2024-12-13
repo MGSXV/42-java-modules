@@ -3,6 +3,7 @@ import java.util.HashMap;
 
 public class SignatureReader {
 	private static final String sourceFile = "signatures.txt";
+	public static int 	longestSignature = -1;
 
 	private HashMap<String, String> signatures;
 
@@ -29,6 +30,7 @@ public class SignatureReader {
 						ext = "";
 						signature = "";
 						flag = false;
+						longestSignature = Math.max(longestSignature, signature.length());
 					}
 				} else {
 					if (!flag)
