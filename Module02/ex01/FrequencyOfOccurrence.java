@@ -13,9 +13,9 @@ public class FrequencyOfOccurrence {
 	public FrequencyOfOccurrence(String file1, String file2) {
 		this.file1 = file1;
 		this.file2 = file2;
-		this.frequency1 = new HashMap<>();
-		this.frequency2 = new HashMap<>();
-		this.allWords = new HashMap<>();
+		this.frequency1 = new HashMap<String, Integer>();
+		this.frequency2 = new HashMap<String, Integer>();
+		this.allWords = new HashMap<String, Integer>();
 	}
 
 	public void parseFile(String fileName, HashMap<String, Integer> frequency) throws Exception {
